@@ -10,7 +10,7 @@ namespace Trx_Blockchain_Lib
 {
     public class BlockMiner
     {
-        private static int MINING_PERIOD = 10000;
+        private static int MINING_PERIOD = 5000;
         //private TransactionPool TransactionPool { get => DependencyManager.TransactionPool; }
         public TransactionPool TransactionPool { get; set; }
         private Blockchain blockchain;
@@ -44,6 +44,16 @@ namespace Trx_Blockchain_Lib
                 Thread.Sleep(remainTime < 0 ? 0 : remainTime);
             }
         }
+
+        public void DoGenerateBlockTest(Blockchain blockchain)
+        {
+            var startTime = DateTime.Now.Millisecond;
+            GenerateBlock(blockchain);
+            var endTime = DateTime.Now.Millisecond;
+            var remainTime = MINING_PERIOD - (endTime - startTime);
+            Thread.Sleep(remainTime < 0 ? 0 : remainTime);
+        }
+
         public void GenerateBlock(Blockchain blockchain)
         {
             var lastBlock = blockchain.GetLatestBlock();

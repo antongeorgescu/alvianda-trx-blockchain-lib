@@ -10,10 +10,12 @@ namespace ConsoleTrxBlockchain
         {
             Console.WriteLine("Welcome to Loan Star Blockchain!");
 
-            Console.WriteLine("*******************************************************************");
+            Console.WriteLine("*********************************************************************************************************************");
 
             var blockchain = new Blockchain();
             BlockMiner miner = new BlockMiner(blockchain);
+
+            string error;
 
             var trxList1 = new List<Tuple<string,string,double>>();
             trxList1.Add(new Tuple<string, string, double>("Anton-Georgescu","Loan003.Repayment.Pay",200));
@@ -23,11 +25,12 @@ namespace ConsoleTrxBlockchain
             Console.WriteLine($"adding {trxList1.Count} raw transactions...");
 
             miner.TransactionPool = AddTransactionsToPool(trxList1);
-            Console.WriteLine("blockchained mining...");
-            miner.GenerateBlock(blockchain);
-            Console.WriteLine($"blockchain is valid:{blockchain.IsChainValid()}");
+            Console.WriteLine($"{DateTime.Now}: start blockchained mining...");
+            miner.DoGenerateBlockTest(blockchain);
+            Console.WriteLine($"{DateTime.Now}: end blockchained mining.");
+            Console.WriteLine($"blockchain is valid:{blockchain.IsChainValid(out error)}");
 
-            Console.WriteLine("*******************************************************************");
+            Console.WriteLine("*********************************************************************************************************************");
 
             var trxList2 = new List<Tuple<string, string, double>>();
             trxList2.Add(new Tuple<string, string, double>("Jake-Trajanovich", "Loan002.Repayment.Pay", 200));
@@ -37,28 +40,39 @@ namespace ConsoleTrxBlockchain
             Console.WriteLine($"adding {trxList2.Count} raw transactions...");
 
             miner.TransactionPool = AddTransactionsToPool(trxList2);
-            Console.WriteLine("blockchained mining...");
-            miner.GenerateBlock(blockchain);
-            Console.WriteLine($"blockchain is valid:{blockchain.IsChainValid()}");
+            Console.WriteLine($"{DateTime.Now}: start blockchained mining...");
+            miner.DoGenerateBlockTest(blockchain);
+            Console.WriteLine($"{DateTime.Now}: end blockchained mining.");
+            Console.WriteLine($"blockchain is valid:{blockchain.IsChainValid(out error)}");
 
-            Console.WriteLine("*******************************************************************");
+            Console.WriteLine("*********************************************************************************************************************");
 
             string testAccount = "Alex-Georgescu";
             Console.WriteLine($"list existing transactions for:{testAccount}");
 
             var trxs = blockchain.GetAllTransactionsForAccount(testAccount);
             foreach (var tx in trxs)
-                Console.WriteLine($"from:{tx.fromAccount},to:{tx.toAccount},amount:{tx.amount}");
-            
-            Console.WriteLine("*******************************************************************");
+                Console.WriteLine($"timestamp:{tx.timestamp},from:{tx.fromAccount},to:{tx.toAccount},amount:{tx.amount},isvalid:{tx.IsValid()}");
+
+            Console.WriteLine("*********************************************************************************************************************");
 
             Console.WriteLine($"tampering with blockchain transaction...");
-            Console.WriteLine($"[original] from:{blockchain.chain[2].transactions[0].fromAccount},to:{blockchain.chain[2].transactions[0].toAccount},amount:{blockchain.chain[2].transactions[0].amount}");
+            Console.WriteLine($"[original] timestamp:{blockchain.chain[2].transactions[0].timestamp},from:{blockchain.chain[2].transactions[0].fromAccount},to:{blockchain.chain[2].transactions[0].toAccount},amount:{blockchain.chain[2].transactions[0].amount},isvalid:{blockchain.chain[2].transactions[0].IsValid()}");
             blockchain.chain[2].transactions[0].amount = 50;
-            Console.WriteLine($"[tampered] from:{blockchain.chain[2].transactions[0].fromAccount},to:{blockchain.chain[2].transactions[0].toAccount},amount:{blockchain.chain[2].transactions[0].amount}");
-            Console.WriteLine($"blockchain is valid:{blockchain.IsChainValid()}");
+            Console.WriteLine($"[tampered] timestamp:{blockchain.chain[2].transactions[0].timestamp},from:{blockchain.chain[2].transactions[0].fromAccount},to:{blockchain.chain[2].transactions[0].toAccount},amount:{blockchain.chain[2].transactions[0].amount},isvalid:{blockchain.chain[2].transactions[0].IsValid()}");
+            var isChainValid = blockchain.IsChainValid(out error);
+            Console.WriteLine($"blockchain is valid:{isChainValid} {error}");
 
-            Console.WriteLine("*******************************************************************");
+            Console.WriteLine("*********************************************************************************************************************");
+
+            Console.WriteLine($"trying to revert transaction to initial value...");
+            Console.WriteLine($"[original] timestamp:{blockchain.chain[2].transactions[0].timestamp},from:{blockchain.chain[2].transactions[0].fromAccount},to:{blockchain.chain[2].transactions[0].toAccount},amount:{blockchain.chain[2].transactions[0].amount},isvalid:{blockchain.chain[2].transactions[0].IsValid()}");
+            blockchain.chain[2].transactions[0].amount = 200;
+            Console.WriteLine($"[tampered] timestamp:{blockchain.chain[2].transactions[0].timestamp},from:{blockchain.chain[2].transactions[0].fromAccount},to:{blockchain.chain[2].transactions[0].toAccount},amount:{blockchain.chain[2].transactions[0].amount},isvalid:{blockchain.chain[2].transactions[0].IsValid()}");
+            isChainValid = blockchain.IsChainValid(out error);
+            Console.WriteLine($"blockchain is valid:{isChainValid} {error}");
+
+            Console.WriteLine("*********************************************************************************************************************");
 
             Console.ReadKey();
         }

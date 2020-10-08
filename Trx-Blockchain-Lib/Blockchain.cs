@@ -156,7 +156,7 @@ namespace Trx_Blockchain_Lib
          *
          * @returns {boolean}
          */
-        public bool IsChainValid()
+        public bool IsChainValid(out string error)
         {
             // Check if the Genesis block hasn't been tampered with by comparing
             // the output of createGenesisBlock with the first block on our chain
@@ -175,15 +175,17 @@ namespace Trx_Blockchain_Lib
 
                 if (!currentBlock.HasValidTransactions())
                 {
+                    error = "Invalid transaction signature(s)";
                     return false;
                 }
 
                 if (currentBlock.hash != currentBlock.CalculateHash())
                 {
+                    error = "Tampered block hash values";
                     return false;
                 }
             }
-
+            error = null;
             return true;
         }
     }

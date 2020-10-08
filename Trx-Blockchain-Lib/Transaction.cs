@@ -15,7 +15,7 @@ namespace Trx_Blockchain_Lib
         public string fromAccount;
         public string toAccount;
         public double amount;
-        DateTime timestamp;
+        public DateTime timestamp;
         public string signature;
 
         public Transaction(string fromAccount, string toAccount, double amount)
