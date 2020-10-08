@@ -12,6 +12,7 @@ namespace Trx_Blockchain_Lib
     {
         private static int MINING_PERIOD = 10000;
         //private TransactionPool TransactionPool { get => DependencyManager.TransactionPool; }
+        public TransactionPool TransactionPool { get; set; }
         private Blockchain blockchain;
         private System.Threading.CancellationTokenSource cancellationToken;
 
@@ -19,6 +20,7 @@ namespace Trx_Blockchain_Lib
         {
             blockchain = blockchain;
         }
+
         public void Start()
         {
             cancellationToken = new CancellationTokenSource();
@@ -31,30 +33,30 @@ namespace Trx_Blockchain_Lib
             Console.WriteLine("Mining has stopped");
         }
 
-        public void DoGenerateBlock(Blockchain chain)
+        public void DoGenerateBlock(Blockchain blockchain)
         {
             while (true)
             {
                 var startTime = DateTime.Now.Millisecond;
-                GenerateBlock(chain);
+                GenerateBlock(blockchain);
                 var endTime = DateTime.Now.Millisecond;
                 var remainTime = MINING_PERIOD - (endTime - startTime);
                 Thread.Sleep(remainTime < 0 ? 0 : remainTime);
             }
         }
-        private void GenerateBlock(Blockchain chain)
+        public void GenerateBlock(Blockchain blockchain)
         {
-            var lastBlock = chain.GetLatestBlock();
+            var lastBlock = blockchain.GetLatestBlock();
             var block = new Block()
             {
                 timestamp = DateTime.Now,
                 nonce = 0,
-                transactions = chain.TakeAllRawTransactions(),
+                transactions = TransactionPool.TakeAllRaw(),
                 index = (lastBlock?.index + 1 ?? 0),
                 previousHash = lastBlock?.hash ?? string.Empty
             };
             MineBlock(block);
-            chain.AddBlock(block);
+            blockchain.AddBlock(block);
         }
 
         private void MineBlock(Block block)

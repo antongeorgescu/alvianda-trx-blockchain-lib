@@ -3,11 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTrxBlockchain", "ConsoleTrxBlockchain.csproj", "{8C9F8304-BCD4-4A8D-A4AB-B44EF015E2D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleTrxBlockchain", "ConsoleTrxBlockchain.csproj", "{8C9F8304-BCD4-4A8D-A4AB-B44EF015E2D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trx-Blockchain-Lib", "..\Trx-Blockchain-Lib\Trx-Blockchain-Lib.csproj", "{682E28F6-AA08-4CC8-AC6B-E6526C0F889C}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlockchainDemo", "..\..\Basic-Blockchain\BlockchainDemo\BlockchainDemo.csproj", "{D4D87449-A9D7-4BE7-808B-4567D4122128}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Trx-Blockchain-Lib", "..\Trx-Blockchain-Lib\Trx-Blockchain-Lib.csproj", "{682E28F6-AA08-4CC8-AC6B-E6526C0F889C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +21,6 @@ Global
 		{682E28F6-AA08-4CC8-AC6B-E6526C0F889C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{682E28F6-AA08-4CC8-AC6B-E6526C0F889C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{682E28F6-AA08-4CC8-AC6B-E6526C0F889C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D4D87449-A9D7-4BE7-808B-4567D4122128}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D4D87449-A9D7-4BE7-808B-4567D4122128}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D4D87449-A9D7-4BE7-808B-4567D4122128}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D4D87449-A9D7-4BE7-808B-4567D4122128}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

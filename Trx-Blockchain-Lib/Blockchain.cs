@@ -9,7 +9,7 @@ namespace Trx_Blockchain_Lib
 {
     public class Blockchain
     {
-        List<Block> chain = new List<Block>();
+        public List<Block> chain = new List<Block>();
         List<Transaction> pendingTransactions; 
     
         public Blockchain()
@@ -144,7 +144,7 @@ namespace Trx_Blockchain_Lib
             return txs;
         }
 
-        public List<Transaction> TakeAllRawTransactions()
+        public List<Transaction> ReadAllPendingTransactions()
         {
             return pendingTransactions;
         }
@@ -160,12 +160,12 @@ namespace Trx_Blockchain_Lib
         {
             // Check if the Genesis block hasn't been tampered with by comparing
             // the output of createGenesisBlock with the first block on our chain
-            var realGenesis = JsonConvert.SerializeObject(this.createGenesisBlock(), Formatting.Indented);
+            //var realGenesis = JsonConvert.SerializeObject(this.createGenesisBlock(), Formatting.Indented);
 
-            if (realGenesis != JsonConvert.SerializeObject(this.chain[0], Formatting.Indented))
-            {
-                return false;
-            }
+            //if (realGenesis != JsonConvert.SerializeObject(this.chain[0], Formatting.Indented))
+            //{
+            //    return false;
+            //}
 
             // Check the remaining blocks on the chain to see if there hashes and
             // signatures are correct

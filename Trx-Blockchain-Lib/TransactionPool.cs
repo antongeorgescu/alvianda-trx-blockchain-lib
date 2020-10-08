@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Trx_Blockchain_Lib
@@ -24,13 +25,14 @@ namespace Trx_Blockchain_Lib
             }
         }
 
-        public List<Transaction> TakeAll()
+        public List<Transaction> TakeAllRaw()
         {
             lock (lockObj)
             {
-                var all = rawTransactionList;
+                Transaction[] all = new Transaction[rawTransactionList.Count];
+                rawTransactionList.CopyTo(all);
                 rawTransactionList.Clear();
-                return all;
+                return all.ToList<Transaction>();
             }
         }
     }
