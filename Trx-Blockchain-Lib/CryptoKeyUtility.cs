@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Security.Cryptography;
+using System.IO;
 
 namespace Trx_Blockchain_Lib
 {
@@ -113,6 +114,44 @@ namespace Trx_Blockchain_Lib
             }
             error = null;
             return result;
+        }
+
+        public static bool IsValidSignature(byte[] signature, string data, out string error)
+        {
+            try
+            {
+                MemoryStream msDecrypt = new MemoryStream(signature);
+
+                // Create a CryptoStream using the MemoryStream
+                // and the passed key and initialization vector (IV).
+                CryptoStream csDecrypt = new CryptoStream(msDecrypt,
+                    new TripleDESCryptoServiceProvider().CreateDecryptor(signature, SymmetricAlgorithm.Create("TripleDes").IV),
+                    CryptoStreamMode.Read);
+
+                // Create buffer to hold the decrypted data.
+                byte[] fromEncrypt = new byte[signature.Length];
+
+                // Read the decrypted data out of the crypto stream
+                // and place it into the temporary buffer.
+                csDecrypt.Read(fromEncrypt, 0, fromEncrypt.Length);
+
+                //Convert the buffer into a string and return it.
+                var result = new ASCIIEncoding().GetString(fromEncrypt);
+                if (result != data)
+                {
+                    error = $"Invalid signature for {data}";
+                    return false;
+                }
+
+                error = null;
+                return true;
+            }
+            catch (CryptographicException e)
+            {
+                error = $"A Cryptographic error occurred: {e.Message}";
+                return false;
+            }
+
         }
 
         public static string ToString(this byte[] bytes)

@@ -16,7 +16,7 @@ namespace Trx_Blockchain_Lib
         public string toAccount;
         public double amount;
         public DateTime timestamp;
-        public string signature;
+        public byte[] signature;
 
         public Transaction(string fromAccount, string toAccount, double amount)
         {
@@ -39,11 +39,11 @@ namespace Trx_Blockchain_Lib
             {
                 // Calculate the hash of this transaction, sign it with the key
                 // and store it inside the transaction obect
-                var hashTx = EncryptionHelper.CalculateHash(this.fromAccount + this.toAccount + this.amount + this.timestamp);
+                //var hashTx = EncryptionHelper.CalculateHash(this.fromAccount + this.toAccount + this.amount + this.timestamp);
 
                 error = null;
                 //this.signature = EncryptionHelper.SignDataWithPrivateKey(hashTx, signingKey, "base64", out error);
-                this.signature = CryptoKeyUtility.GenerateKeyWithSaltFromString(signingKey,out error).ToString();
+                this.signature = CryptoKeyUtility.GenerateKeyWithSaltFromString(signingKey,out error);
 
                 if (signature == null)
                     throw new Exception(error);
@@ -78,8 +78,13 @@ namespace Trx_Blockchain_Lib
                 if (this.signature == null)
                     return false;
 
-                if (this.signature.IsEmpty())
+                if (this.signature.Length == 0)
                     return false;
+
+                // check the fromAccount is the signingKey
+                //string error;
+                //if (!CryptoKeyUtility.IsValidSignature(signature, fromAccount, out error))
+                //    return false;
 
                 return true;
 
