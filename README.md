@@ -39,6 +39,6 @@ The blockchain can be persisted into a data store (database) once an ORM/db pair
 
 ## Component Diagram (Code Map)
 
-![TrxBlockchainLib-CodeMap](https://user-images.githubusercontent.com/6631390/95638749-c189b680-0a63-11eb-9aba-e5a82a4edc46.png)
+![TrxBlockchainLib-CodeMap](https://user-images.githubusercontent.com/6631390/95639120-4d501280-0a65-11eb-8c5e-77a2fdacecbc.png)
 
 
