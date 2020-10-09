@@ -39,13 +39,7 @@ namespace Trx_Blockchain_Lib
         {
             try
             {
-                // Calculate the hash of this transaction, sign it with the key
-                // and store it inside the transaction obect
-                //var hashTx = EncryptionHelper.CalculateHash(this.fromAccount + this.toAccount + this.amount + this.timestamp);
-
                 error = null;
-                //this.signature = EncryptionHelper.SignDataWithPrivateKey(hashTx, signingKey, "base64", out error);
-                //this.signature = CryptoKeyUtility.GenerateKeyWithSaltFromString(signingKey,out error);
                 var encryptResult = CryptoKeyUtility.GenerateKeyFromString(signingKey, out error);
 
                 if (encryptResult == null)
