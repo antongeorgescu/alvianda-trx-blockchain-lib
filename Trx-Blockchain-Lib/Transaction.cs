@@ -17,6 +17,8 @@ namespace Trx_Blockchain_Lib
         public double amount;
         public DateTime timestamp;
         public byte[] signature;
+        public byte[] encryptKey;
+        public byte[] initVector;
 
         public Transaction(string fromAccount, string toAccount, double amount)
         {
@@ -43,10 +45,15 @@ namespace Trx_Blockchain_Lib
 
                 error = null;
                 //this.signature = EncryptionHelper.SignDataWithPrivateKey(hashTx, signingKey, "base64", out error);
-                this.signature = CryptoKeyUtility.GenerateKeyWithSaltFromString(signingKey,out error);
+                //this.signature = CryptoKeyUtility.GenerateKeyWithSaltFromString(signingKey,out error);
+                var encryptResult = CryptoKeyUtility.GenerateKeyFromString(signingKey, out error);
 
-                if (signature == null)
+                if (encryptResult == null)
                     throw new Exception(error);
+
+                this.signature = encryptResult.Item1;
+                this.encryptKey = encryptResult.Item2;
+                this.initVector = encryptResult.Item3;
 
                 return true;
             }
@@ -54,6 +61,8 @@ namespace Trx_Blockchain_Lib
             {
                 error = ex.Message;
                 this.signature = null;
+                this.encryptKey = null;
+                this.initVector = null;
                 return false;
             }
         }
@@ -82,9 +91,9 @@ namespace Trx_Blockchain_Lib
                     return false;
 
                 // check the fromAccount is the signingKey
-                //string error;
-                //if (!CryptoKeyUtility.IsValidSignature(signature, fromAccount, out error))
-                //    return false;
+                string error;
+                if (!CryptoKeyUtility.IsValidSignature(signature, encryptKey,initVector,fromAccount, out error))
+                    return false;
 
                 return true;
 
