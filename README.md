@@ -31,14 +31,15 @@ There are a few main actors (classes):
 * list of processed, signed transactions
 * these transactions are immutable
 
-**CryptoKeyUtility** and **EncryptionHelper** classes provide: 
+**CryptoKeyUtility** and **ChainHelper** classes provide: 
 * methods for hashing and encryption/decryption strings
+* difficulty of work parameters (eg mining time and number of leading zeroes in hash string)
 
 The blockchain can be persisted into a data store (database) once an ORM/db pair of components will be added to the design
 
 
 ## Component Diagram (Code Map)
 
-![TrxBlockchainLib-CodeMap](https://user-images.githubusercontent.com/6631390/95639120-4d501280-0a65-11eb-8c5e-77a2fdacecbc.png)
+![TrxBlockchainLib-CodeMap](https://user-images.githubusercontent.com/6631390/95657251-76ae8400-0ae1-11eb-9736-4e8102d3f9af.png)
 
 

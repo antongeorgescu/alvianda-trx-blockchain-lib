@@ -1,69 +1,89 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <DirectedGraph DataVirtualized="True" Layout="Sugiyama" ZoomLevel="-1" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
   <Nodes>
-    <Node Id="@10" Category="CodeSchema_Class" Bounds="-128.918183254909,178.04370998601,146.35,25" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsFinal="True" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="CryptoKeyUtility" />
-    <Node Id="@11" Category="CodeSchema_Class" Bounds="48.0384834117576,178.04370998601,152.436666666667,25" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsFinal="True" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="EncryptionHelper" />
-    <Node Id="@12" Category="CodeSchema_Class" Bounds="-27.168183254909,123.04370998601,120.85,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="Transaction" />
-    <Node Id="@13" Category="CodeSchema_Class" Bounds="-127.789849921576,68.0437099860103,144.093333333333,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="TransactionPool" />
-    <Node Id="@2" Category="CodeSchema_Assembly" Bounds="-168.918183254909,-121.956647156871,409.393333333333,365.000842857118" CodeSchemaProperty_StrongName="Trx-Blockchain-Lib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="1" FilePath="$(682e28f6-aa08-4cc8-ac6b-e6526c0f889c.OutputPath)" Group="Expanded" Label="Trx-Blockchain-Lib.dll" UseManualLocation="True" />
-    <Node Id="@4" Category="CodeSchema_Assembly" Bounds="-62.343118604742,-216.956264299722,189.42,25" CodeSchemaProperty_StrongName="ConsoleTrxBlockchain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(8c9f8304-bcd4-4a8d-a4ab-b44ef015e2d3.OutputPath)" Group="Collapsed" Label="ConsoleTrxBlockchain.dll" UseManualLocation="True" />
-    <Node Id="@6" Category="CodeSchema_Namespace" Bounds="-148.918183254909,-81.9565471568712,369.393333333333,305.0006" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="7" Group="Expanded" Label="Trx_Blockchain_Lib" UseManualLocation="True" />
-    <Node Id="@7" Category="CodeSchema_Class" Bounds="79.5951500784243,68.0437099860103,89.3233333333333,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="Block" />
-    <Node Id="@8" Category="CodeSchema_Class" Bounds="-24.4731832549091,13.0437099860103,117.46,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="Blockchain" />
-    <Node Id="@9" Category="CodeSchema_Class" Bounds="-115.866516588242,-41.9562900139897,120.246666666667,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="BlockMiner" />
+    <Node Id="@10" Category="CodeSchema_Class" Bounds="7.82097323514466,115.097924708592,120.246666666667,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="BlockMiner" UseManualLocation="True" />
+    <Node Id="@11" Category="CodeSchema_Class" Bounds="96.3233916449979,203.198476988307,126.23,25" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsFinal="True" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="ChainHelper" UseManualLocation="True" />
+    <Node Id="@12" Category="CodeSchema_Class" Bounds="-111.735116487744,52.5075017944224,146.35,25" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsFinal="True" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="CryptoKeyUtility" UseManualLocation="True" />
+    <Node Id="@13" Category="CodeSchema_Class" Bounds="2.84317256825355,-240.083221119747,106.606666666667,25" CodeSchemaProperty_IsInternal="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="Program" />
+    <Node Id="@14" Category="CodeSchema_Class" Bounds="4.98919893042168,-10.0829211197469,120.85,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="Transaction" UseManualLocation="True" />
+    <Node Id="@15" Category="CodeSchema_Class" Bounds="-5.36741391721675,-65.0830211197469,144.093333333333,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="TransactionPool" />
+    <Node Id="@2" Category="CodeSchema_Assembly" Bounds="-151.735116487744,-145.083221119747,415.676076155698,413.281898111289" CodeSchemaProperty_StrongName="Trx-Blockchain-Lib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="1" FilePath="$(682e28f6-aa08-4cc8-ac6b-e6526c0f889c.OutputPath)" Group="Expanded" Label="Trx-Blockchain-Lib.dll" UseManualLocation="True" />
+    <Node Id="@4" Category="CodeSchema_Assembly" Bounds="-49.3234940984131,-320.083221119747,210.94,145" CodeSchemaProperty_StrongName="ConsoleTrxBlockchain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="1" FilePath="$(8c9f8304-bcd4-4a8d-a4ab-b44ef015e2d3.OutputPath)" Group="Expanded" Label="ConsoleTrxBlockchain.dll" UseManualLocation="True" />
+    <Node Id="@5" Category="CodeSchema_Namespace" Bounds="-29.3234940984131,-280.083221119747,170.94,85" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="1" Group="Expanded" Label="ConsoleTrxBlockchain" UseManualLocation="True" />
+    <Node Id="@7" Category="CodeSchema_Namespace" Bounds="-131.735116487744,-105.083121119747,375.676076155698,353.281698111289" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="7" Group="Expanded" Label="Trx_Blockchain_Lib" UseManualLocation="True" />
+    <Node Id="@8" Category="CodeSchema_Class" Bounds="-102.65828281071,203.198476991542,89.3233333333333,25.0000000000001" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="Block" UseManualLocation="True" />
+    <Node Id="@9" Category="CodeSchema_Class" Bounds="106.480959667954,55.0376090155199,117.46,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="Blockchain" UseManualLocation="True" />
   </Nodes>
   <Links>
-    <Link Source="@12" Target="@10" Category="CodeSchema_Calls" Bounds="-27.859900567477,148.043796652683,40.8894813620879,25.2688265602581" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2" />
-    <Link Source="@12" Target="@11" Category="CodeSchema_Calls" Bounds="53.9386048443024,148.043796652683,41.9339675164321,25.3447425068333" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="1" />
-    <Link Source="@13" Target="@12" Category="References" Bounds="-35.5159546597656,93.0436766526992,40.8894968421429,25.2688453152454" IsSourceVirtualized="True" Weight="9" />
-    <Link Source="@2" Target="@6" Category="Contains" FetchingParent="@2" />
-    <Link Source="@4" Target="@12" Category="References" Bounds="32.9039609606752,-191.956721442604,11.4294353810235,266.008896003709" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="33">
+    <Link Source="@10" Target="@11" Category="CodeSchema_Calls" Bounds="80.9257923124649,140.097924708592,59.0480595026237,56.8579558872673" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="6">
+      <Category Ref="CodeSchema_FieldRead" />
+    </Link>
+    <Link Source="@10" Target="@15" Category="References" Bounds="74.3929214477539,-36.2433052062988,61.5804977416992,151.341228485107" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="5">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@10" Target="@8" Category="References" Bounds="-32.7530131858376,140.097924708592,82.8284018745445,57.9416744985941" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="16">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@10" Target="@9" Category="References" Bounds="88.1878425824537,84.7661247359899,49.121830809126,30.331799972602" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="7">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@11" Target="@14" Category="References" Bounds="67.6210556030273,23.3227062225342,88.8873825073242,179.875764846802" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="14">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_FieldRead" />
+    </Link>
+    <Link Source="@11" Target="@8" Category="References" Bounds="-4.3354115486145,213.037017822266,100.658806324005,0.3543701171875" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="8">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@11" Target="@9" Category="References" Bounds="158.829315185547,89.0326080322266,3.67921447753906,114.165863037109" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2">
+      <Category Ref="CodeSchema_FieldRead" />
+    </Link>
+    <Link Source="@13" Target="@10" Category="CodeSchema_Calls" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="5" />
+    <Link Source="@13" Target="@11" Category="CodeSchema_Calls" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="3">
+      <Category Ref="CodeSchema_FieldRead" />
+    </Link>
+    <Link Source="@13" Target="@14" Category="References" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="33">
       <Category Ref="CodeSchema_Calls" />
       <Category Ref="CodeSchema_FieldRead" />
       <Category Ref="CodeSchema_FieldWrite" />
     </Link>
-    <Link Source="@4" Target="@13" Category="CodeSchema_Calls" Bounds="-37.1900182138867,-191.956721442604,65.6737409701742,211.405672147565" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="3">
+    <Link Source="@13" Target="@15" Category="CodeSchema_Calls" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="3">
       <Category Ref="CodeSchema_ReturnTypeLink" />
     </Link>
-    <Link Source="@4" Target="@2" Category="CodeMap_ProjectReference" Bounds="79.8400762648903,-53.1715325955623,6.07969723593718,38.5530378143598" />
-    <Link Source="@4" Target="@7" Category="References" Bounds="37.667378410721,-191.956721442604,89.7754158501555,211.714617488361" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="23">
+    <Link Source="@13" Target="@8" Category="References" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="23">
       <Category Ref="CodeSchema_Calls" />
     </Link>
-    <Link Source="@4" Target="@8" Category="CodeSchema_Calls" Bounds="33.2806910076215,-191.956721442604,11.4061243130348,156.024353414461" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="28">
+    <Link Source="@13" Target="@9" Category="CodeSchema_Calls" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="28">
       <Category Ref="CodeSchema_FieldRead" />
     </Link>
-    <Link Source="@4" Target="@9" Category="CodeSchema_Calls" Bounds="-32.2760163882869,-191.956721442604,57.5956852356684,102.160401797842" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="5" />
-    <Link Source="@6" Target="@10" Category="Contains" FetchingParent="@6" />
-    <Link Source="@6" Target="@11" Category="Contains" FetchingParent="@6" />
-    <Link Source="@6" Target="@12" Category="Contains" FetchingParent="@6" />
-    <Link Source="@6" Target="@13" Category="Contains" FetchingParent="@6" />
-    <Link Source="@6" Target="@7" Category="Contains" FetchingParent="@6" />
-    <Link Source="@6" Target="@8" Category="Contains" FetchingParent="@6" />
-    <Link Source="@6" Target="@9" Category="Contains" FetchingParent="@6" />
-    <Link Source="@7" Target="@11" Category="CodeSchema_Calls" Bounds="124.256816745091,93.0436966526835,1.4210854715202E-14,76.0001800000157" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="1" />
-    <Link Source="@7" Target="@12" Category="References" Bounds="61.6410528594181,93.0436966526835,41.9339833070921,25.3447612669054" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="9">
+    <Link Source="@14" Target="@11" Category="CodeSchema_Calls" Bounds="57.9164657592773,14.9170789718628,91.9821853637695,179.302067756653" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@14" Target="@12" Category="CodeSchema_Calls" Bounds="-10.0846014418597,14.9170788802531,54.7339791390182,32.9487420841238" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@15" Target="@14" Category="References" Bounds="65.9086643331693,-40.0830211197469,0.483076707431849,21.0024797497015" IsSourceVirtualized="True" Weight="9" />
+    <Link Source="@2" Target="@7" Category="Contains" FetchingParent="@2" />
+    <Link Source="@4" Target="@2" Category="CodeMap_ProjectReference" Bounds="91.4098204412285,142.890087768979,3.32897102157489,21.1099622310209" />
+    <Link Source="@4" Target="@5" Category="Contains" FetchingParent="@4" />
+    <Link Source="@5" Target="@13" Category="Contains" FetchingParent="@5" />
+    <Link Source="@7" Target="@10" Category="Contains" FetchingParent="@7" />
+    <Link Source="@7" Target="@11" Category="Contains" FetchingParent="@7" />
+    <Link Source="@7" Target="@12" Category="Contains" FetchingParent="@7" />
+    <Link Source="@7" Target="@14" Category="Contains" FetchingParent="@7" />
+    <Link Source="@7" Target="@15" Category="Contains" FetchingParent="@7" />
+    <Link Source="@7" Target="@8" Category="Contains" FetchingParent="@7" />
+    <Link Source="@7" Target="@9" Category="Contains" FetchingParent="@7" />
+    <Link Source="@8" Target="@11" Category="CodeSchema_Calls" Bounds="-13.3349494934082,219.085388183594,100.658473968506,0.306106567382813" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@8" Target="@14" Category="References" Bounds="-51.8075485229492,23.6697120666504,112.19881439209,179.528759002686" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="9">
       <Category Ref="CodeSchema_Calls" />
     </Link>
-    <Link Source="@8" Target="@12" Category="References" Bounds="33.4522674952604,38.0435633193723,0.690913127240513,76.0006052095099" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="26">
+    <Link Source="@9" Target="@11" Category="CodeSchema_Calls" Bounds="164.832992553711,80.0376052856445,3.10202026367188,114.179176330566" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_FieldRead" />
+    </Link>
+    <Link Source="@9" Target="@14" Category="References" Bounds="92.1076241288103,19.835379706839,53.9471722427461,35.2022293086809" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="26">
       <Category Ref="CodeSchema_Calls" />
       <Category Ref="CodeSchema_FieldRead" />
     </Link>
-    <Link Source="@8" Target="@7" Category="References" Bounds="54.711312612988,38.0435633193723,41.411476823505,25.30707496469" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="32">
+    <Link Source="@9" Target="@8" Category="References" Bounds="-11.5470476150513,80.0376052856445,172.789341926575,120.342063903809" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="35">
       <Category Ref="CodeSchema_Calls" />
       <Category Ref="CodeSchema_ReturnTypeLink" />
-    </Link>
-    <Link Source="@9" Target="@12" Category="References" Bounds="-52.3400840759277,-16.9565372467041,83.5965099334717,131.045694351196" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="6">
-      <Category Ref="CodeSchema_Calls" />
-    </Link>
-    <Link Source="@9" Target="@13" Category="References" Bounds="-55.7431832549091,-16.9565366806277,4.2632564145606E-14,76.0002133333269" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="5">
-      <Category Ref="CodeSchema_Calls" />
-      <Category Ref="CodeSchema_ReturnTypeLink" />
-    </Link>
-    <Link Source="@9" Target="@7" Category="References" Bounds="1.99326419830322,-17.6937160491943,116.496275901794,77.0534839630127" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="16">
-      <Category Ref="CodeSchema_Calls" />
-    </Link>
-    <Link Source="@9" Target="@8" Category="References" Bounds="-35.2886749903787,-16.9565366806277,41.4114507646969,25.3070437022601" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="7">
-      <Category Ref="CodeSchema_Calls" />
     </Link>
   </Links>
   <Categories>
@@ -87,6 +107,7 @@
     <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
     <Property Id="CodeSchemaProperty_IsAbstract" Label="Is Abstract" Description="Flag to indicate member is 'Abstract' does not provide a full implementation" DataType="System.Boolean" />
     <Property Id="CodeSchemaProperty_IsFinal" Label="Is Final" Description="Flag to indicate the member is 'Final' and cannot be derived from" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsInternal" Label="Is Internal" Description="Flag to indicate the method is 'Internal'" DataType="System.Boolean" />
     <Property Id="CodeSchemaProperty_IsPublic" Label="Is Public" Description="Flag to indicate the scope is Public" DataType="System.Boolean" />
     <Property Id="CodeSchemaProperty_StrongName" Label="StrongName" Description="StrongName" DataType="System.String" />
     <Property Id="DataVirtualized" Label="Data Virtualized" Description="If true, the graph can contain nodes and links that represent data for virtualized nodes/links (i.e. not actually created in the graph)." DataType="System.Boolean" />
@@ -127,15 +148,17 @@
     <Alias n="2" Id="(@1)" />
     <Alias n="3" Uri="Assembly=$(8c9f8304-bcd4-4a8d-a4ab-b44ef015e2d3.OutputPathUri)" />
     <Alias n="4" Id="(@3)" />
-    <Alias n="5" Id="Namespace=Trx_Blockchain_Lib" />
-    <Alias n="6" Id="(@1 @5)" />
-    <Alias n="7" Id="(@1 @5 Type=Block)" />
-    <Alias n="8" Id="(@1 @5 Type=Blockchain)" />
-    <Alias n="9" Id="(@1 @5 Type=BlockMiner)" />
-    <Alias n="10" Id="(@1 @5 Type=CryptoKeyUtility)" />
-    <Alias n="11" Id="(@1 @5 Type=EncryptionHelper)" />
-    <Alias n="12" Id="(@1 @5 Type=Transaction)" />
-    <Alias n="13" Id="(@1 @5 Type=TransactionPool)" />
+    <Alias n="5" Id="(@3 Namespace=ConsoleTrxBlockchain)" />
+    <Alias n="6" Id="Namespace=Trx_Blockchain_Lib" />
+    <Alias n="7" Id="(@1 @6)" />
+    <Alias n="8" Id="(@1 @6 Type=Block)" />
+    <Alias n="9" Id="(@1 @6 Type=Blockchain)" />
+    <Alias n="10" Id="(@1 @6 Type=BlockMiner)" />
+    <Alias n="11" Id="(@1 @6 Type=ChainHelper)" />
+    <Alias n="12" Id="(@1 @6 Type=CryptoKeyUtility)" />
+    <Alias n="13" Id="(@3 Namespace=ConsoleTrxBlockchain Type=Program)" />
+    <Alias n="14" Id="(@1 @6 Type=Transaction)" />
+    <Alias n="15" Id="(@1 @6 Type=TransactionPool)" />
   </IdentifierAliases>
   <Styles>
     <Style TargetType="Node" GroupLabel="Results" ValueLabel="True">
