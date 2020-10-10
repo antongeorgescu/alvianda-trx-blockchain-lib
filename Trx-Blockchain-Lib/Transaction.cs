@@ -64,7 +64,7 @@ namespace Trx_Blockchain_Lib
         public string CalculateHash()
         {
             string inputStr = fromAccount + toAccount + timestamp + amount;
-            string hash = EncryptionHelper.CalculateHash(inputStr);
+            string hash = ChainHelper.CalculateHash(inputStr);
             return hash;
         }
 

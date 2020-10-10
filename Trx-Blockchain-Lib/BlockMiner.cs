@@ -10,15 +10,20 @@ namespace Trx_Blockchain_Lib
 {
     public class BlockMiner
     {
-        private static int MINING_PERIOD = 5000;
+        
         //private TransactionPool TransactionPool { get => DependencyManager.TransactionPool; }
         public TransactionPool TransactionPool { get; set; }
         private Blockchain blockchain;
         private System.Threading.CancellationTokenSource cancellationToken;
 
-        public BlockMiner(Blockchain blockchain)
+        private string hashStartWith;
+
+        public BlockMiner(Blockchain blockChain)
         {
-            blockchain = blockchain;
+            blockchain = blockChain;
+            hashStartWith = string.Empty;
+            for (int i = 0; i < ChainHelper.NUMBER_ZEROES; i++)
+                hashStartWith += "0";
         }
 
         public void Start()
@@ -40,7 +45,7 @@ namespace Trx_Blockchain_Lib
                 var startTime = DateTime.Now.Millisecond;
                 GenerateBlock(blockchain);
                 var endTime = DateTime.Now.Millisecond;
-                var remainTime = MINING_PERIOD - (endTime - startTime);
+                var remainTime = ChainHelper.MINING_PERIOD - (endTime - startTime);
                 Thread.Sleep(remainTime < 0 ? 0 : remainTime);
             }
         }
@@ -50,7 +55,7 @@ namespace Trx_Blockchain_Lib
             var startTime = DateTime.Now.Millisecond;
             GenerateBlock(blockchain);
             var endTime = DateTime.Now.Millisecond;
-            var remainTime = MINING_PERIOD - (endTime - startTime);
+            var remainTime = ChainHelper.MINING_PERIOD - (endTime - startTime);
             Thread.Sleep(remainTime < 0 ? 0 : remainTime);
         }
 
@@ -74,64 +79,18 @@ namespace Trx_Blockchain_Lib
             if (block.transactions == null)
                 return;
 
-            var merkleRootHash = FindMerkleRootHash(block.transactions);
+            var merkleRootHash = ChainHelper.FindMerkleRootHash(block.transactions);
             long nonce = -1;
             var hash = string.Empty;
             do
             {
                 nonce++;
                 var rowData = block.index + block.previousHash + block.timestamp.ToString() + nonce + merkleRootHash;
-                hash = CalculateHash(CalculateHash(rowData));
+                hash = ChainHelper.CalculateHash(ChainHelper.CalculateHash(rowData));
             }
-            while (!hash.StartsWith("0000"));
+            while (!hash.StartsWith(hashStartWith)) ;
             block.hash = hash;
             block.nonce = nonce;
-        }
-
-        private string FindMerkleRootHash(List<Transaction> transactionList)
-        {
-            var transactionStrList = transactionList.Select(trx => CalculateHash(trx.CalculateHash())).ToList();
-            return BuildMerkleRootHash(transactionStrList);
-        }
-
-        private string BuildMerkleRootHash(IList<string> merkelLeaves)
-        {
-            if (merkelLeaves == null || !merkelLeaves.Any())
-                return string.Empty;
-
-            if (merkelLeaves.Count() == 1)
-                return merkelLeaves.First();
-
-            if (merkelLeaves.Count() % 2 > 0)
-                merkelLeaves.Add(merkelLeaves.Last());
-
-            var merkleBranches = new List<string>();
-
-            for (int i = 0; i < merkelLeaves.Count(); i += 2)
-            {
-                var leafPair = string.Concat(merkelLeaves[i], merkelLeaves[i + 1]);
-                merkleBranches.Add(CalculateHash(CalculateHash(leafPair)));
-            }
-            return BuildMerkleRootHash(merkleBranches);
-        }
-
-
-        public static string CalculateHash(string rawData)
-        {
-            // Create a SHA256   
-            using (SHA256 sha256Hash = SHA256.Create())
-            {
-                // ComputeHash - returns byte array  
-                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
-
-                // Convert byte array to a string   
-                StringBuilder builder = new StringBuilder();
-                for (int i = 0; i < bytes.Length; i++)
-                {
-                    builder.Append(bytes[i].ToString("x2"));
-                }
-                return builder.ToString();
-            }
         }
     }
 }

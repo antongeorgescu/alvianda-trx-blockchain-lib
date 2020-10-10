@@ -48,8 +48,8 @@ namespace Trx_Blockchain_Lib
          */
         public string CalculateHash()
         {
-            string inputStr = this.previousHash + this.timestamp.ToString() + JsonConvert.SerializeObject(this.transactions, Formatting.Indented);
-            return EncryptionHelper.CalculateHash(inputStr);
+            string inputStr = this.previousHash + this.timestamp.ToString() + JsonConvert.SerializeObject(this.transactions, Formatting.Indented) + this.nonce;
+            return ChainHelper.CalculateHash(inputStr);
         }
 
         /**

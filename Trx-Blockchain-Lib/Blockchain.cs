@@ -9,7 +9,7 @@ namespace Trx_Blockchain_Lib
 {
     public class Blockchain
     {
-        public List<Block> chain = new List<Block>();
+        public List<Block> blocks = new List<Block>();
         List<Transaction> pendingTransactions; 
     
         public Blockchain()
@@ -19,7 +19,7 @@ namespace Trx_Blockchain_Lib
             block.index = 0;
             block.previousHash = "";
             block.hash = block.CalculateHash();
-            chain.Add(block);
+            blocks.Add(block);
         }
 
         /**
@@ -38,7 +38,7 @@ namespace Trx_Blockchain_Lib
          */
         public Block GetLatestBlock()
         {
-            return chain.LastOrDefault<Block>();
+            return blocks.LastOrDefault<Block>();
         }
 
         public void AddBlock(Block block)
@@ -46,8 +46,7 @@ namespace Trx_Blockchain_Lib
             Block latestBlock = GetLatestBlock();
             block.index = latestBlock.index + 1;
             block.previousHash = latestBlock.hash;
-            block.hash = block.CalculateHash();
-            chain.Add(block);
+            blocks.Add(block);
         }
 
         /**
@@ -105,7 +104,7 @@ namespace Trx_Blockchain_Lib
         {
             double balance = 0;
 
-            foreach (var block in chain) {
+            foreach (var block in blocks) {
                 foreach (var trx in block.transactions) {
                     if (trx.fromAccount == account)
                     {
@@ -132,7 +131,7 @@ namespace Trx_Blockchain_Lib
         {
             List<Transaction> txs = new List<Transaction>();
 
-            foreach (var block in chain) {
+            foreach (var block in blocks) {
                 foreach (var trx in block.transactions) {
                     if (trx.fromAccount == account || trx.toAccount == account)
                     {
@@ -169,9 +168,9 @@ namespace Trx_Blockchain_Lib
 
             // Check the remaining blocks on the chain to see if there hashes and
             // signatures are correct
-            for (int i=0; i < this.chain.Count; i++)
+            for (int i=1; i < this.blocks.Count; i++)
             {
-                var currentBlock = this.chain[i];
+                var currentBlock = this.blocks[i];
 
                 if (!currentBlock.HasValidTransactions())
                 {
@@ -179,7 +178,18 @@ namespace Trx_Blockchain_Lib
                     return false;
                 }
 
-                if (currentBlock.hash != currentBlock.CalculateHash())
+                string hashStartWith = string.Empty;
+                for (int k = 0; k < ChainHelper.NUMBER_ZEROES; k++)
+                    hashStartWith += "0";
+
+                if (!currentBlock.hash.StartsWith(hashStartWith))
+                {
+                    error = "Tampered block hash values";
+                    return false;
+                }
+
+                var rawData = currentBlock.index + currentBlock.previousHash + currentBlock.timestamp.ToString() + currentBlock.nonce + ChainHelper.FindMerkleRootHash(currentBlock.transactions);
+                if (currentBlock.hash != ChainHelper.CalculateHash(ChainHelper.CalculateHash(rawData)))
                 {
                     error = "Tampered block hash values";
                     return false;
