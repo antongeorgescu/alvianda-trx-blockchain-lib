@@ -42,7 +42,10 @@ The blockchain can be persisted into a data store (database) once an ORM/db pair
 
 ![TrxBlockchainLib-CodeMap](https://user-images.githubusercontent.com/6631390/95657251-76ae8400-0ae1-11eb-9736-4e8102d3f9af.png)
 
-## Database Diagram (ERD)
+## Persists Blochain Data in Database
+
+The blochchain data can be persisted and secured into a relational database, whose schema is presented below. The current project is using
+a Sqlite3 database, but basically any mainstream RDBMS database can be used.
 
 At a minimum, there are 4 entities that constitute the core schema of the supporting *blockchain compatible database*. 
 They are reflected in the **entity relationship diagram** below. 
