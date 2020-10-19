@@ -42,4 +42,16 @@ The blockchain can be persisted into a data store (database) once an ORM/db pair
 
 ![TrxBlockchainLib-CodeMap](https://user-images.githubusercontent.com/6631390/95657251-76ae8400-0ae1-11eb-9736-4e8102d3f9af.png)
 
+## Database Diagram (ERD)
 
+At a minimum, there are 4 entities that constitute the core schema of the supporting *blockchain compatible database*. 
+They are reflected in the **entity relationship diagram** below. 
+
+As an important note related to the heightened security level on this database that persists the blockchain information, we recommend 
+the application of column encryption with at least symmetric key on the following fields of Transaction table (all of *binary type*):
+
+* signature
+* encrypt_key
+* init_vector
+
+![Entity_Relationship_Diagram](https://user-images.githubusercontent.com/6631390/96483284-07840e80-120a-11eb-9be4-99a9645502e0.PNG)

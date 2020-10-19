@@ -3,6 +3,11 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Project specific files
+*.pdf
+*.sqlite3
+*.eapx
+
 # User-specific files
 *.rsuser
 *.suo
